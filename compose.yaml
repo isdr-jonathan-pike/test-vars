@@ -1,0 +1,13 @@
+version: '3.8'
+services: 
+  test: 
+    build: 
+      context: .
+    volumes:
+      - type: bind
+        source: '${VAR1:+with1}${VAR1:-with1unset}'
+        target: /test1.txt
+      - type: bind
+        source: '${VAR2:+with2}${VAR2:-with2unset}'
+        target: /test2.txt
+    
